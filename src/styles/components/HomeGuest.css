@@ -1,0 +1,24 @@
+h1 {
+    font: 40px Roboto, sans-serif;
+    font-weight: 500;
+    line-height: 46px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.homes-guests {
+    background-color: #EAF0F9;
+}
+
+.homes-guests-container {
+    padding: 120px 25px 120px;
+    width: 1260px;
+    margin: auto;
+}
+
+.home-guests-gallery {
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    position: relative;
+}
