@@ -1,22 +1,18 @@
-import '../styles/App.css';
-import Data from './Data'
+import React from 'react';
 
+// components
+import HomeGuest from './HomeGuest'
 
-function App() {
+// styles
+import '../styles/components/App.css';
+import '../styles/components/HomeGuest.css';
+import '../styles/components/HomeGuestContent.css';
+
+const App = () => {
   return (
-    <div className="App">
-      <section className="homes-guests">
-        <div className="homes-guests-container">
-          <h1>Homes guests loves</h1>
-          <div className="home-guests-gallery gallery">
-      <Data/>
-
-          </div>
-        </div>
-
-      </section>
-
-    </div>
+    <>
+      <HomeGuest/>
+    </>
   );
 }
 
