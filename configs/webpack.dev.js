@@ -1,5 +1,6 @@
+const path = require('path');
 const { merge } = require('webpack-merge');
-const commonConfig = require('./webpack.common');
+const commonConfig = require('./webpack.common.js');
 
 module.exports = merge(commonConfig, {
   mode: "development",
@@ -7,8 +8,17 @@ module.exports = merge(commonConfig, {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader'
-      }
+        include: path.resolve(__dirname, '../dist'),
+        exclude: /node_modules/,
+        // query: {
+        //   presets: ['es2015']
+        // },
+        use: [
+          {
+            loader: require.resolve('babel-loader')
+          }
+        ]
+      },
     ]
   },
   devtool: 'inline-source-map',

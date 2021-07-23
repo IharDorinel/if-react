@@ -23,7 +23,9 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader'
+        use: 'babel-loader',
+        // include: path.resolve(__dirname, '../dist'),
+        include: [path.resolve(__dirname, '../public'), path.resolve(__dirname, '../src')]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -41,7 +43,6 @@ module.exports = {
           }
         }]
       }
-
     ]
   },
   resolve: {
