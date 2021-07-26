@@ -10,9 +10,6 @@ module.exports = merge(commonConfig, {
         test: /\.(js|jsx)$/,
         include: path.resolve(__dirname, '../dist'),
         exclude: /node_modules/,
-        // query: {
-        //   presets: ['es2015']
-        // },
         use: [
           {
             loader: require.resolve('babel-loader')
