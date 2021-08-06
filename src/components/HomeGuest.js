@@ -20,10 +20,7 @@ const [data, setData] = useState([]);
       <div className="homes-guests-container">
         <h1>Homes guests loves</h1>
         <div className="home-guests-gallery">
-          <HomeGuestContent
-            props={data}
-
-          />
+          <HomeGuestContent props={data}/>
         </div>
       </div>
     </section>

@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
+
+// components
 import AvailHotels from "./AvailHotels";
 
-
+// images
 import logo_vector from "../styles/booking_images/logo_vector.svg";
 import icon_night from "../styles/booking_images/Night.svg";
 import icon_account from "../styles/booking_images/AccountCircle.svg";
-
-
+import kastelmeccano from "../styles/booking_images/kastelmeccano.jpg"
 import google from "../styles/booking_images/google-play-badge.svg";
 import appStore from "../styles/booking_images/App_Store_Badge.svg";
-import kastelmeccano from "../styles/booking_images/kastelmeccano.jpg";
 
 
 const TopSection = (props) => {
@@ -47,8 +47,7 @@ const TopSection = (props) => {
     <header className="header">
 
 
-      <div className="header-big-container" style ={{
-        backgroundImage: {kastelmeccano} }}>
+      <div className="header-big-container" style={{backgroundImage: {kastelmeccano}}}>
         <div className="header-big-upper">
           <a href="#">
             <img src={logo_vector} className="image"/>
@@ -79,10 +78,6 @@ const TopSection = (props) => {
             <a href="#">
               <img src={icon_account} className="icon-account icon"/>
             </a>
-            {/*<a href="#">*/}
-            {/*  <img src={menu-icon} className="menu-icon icon">*/}
-            {/*  </img>*/}
-            {/*</a>*/}
           </nav>
         </div>
 

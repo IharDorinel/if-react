@@ -40,7 +40,7 @@ a {
 .header-big-container {
     max-width: 100vw;
     min-height: 100vh;
-    /*background-image: url("../booking_images/kastelmeccano.jpg");*/
+    background-image: url("../booking_images/kastelmeccano.jpg");
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
@@ -139,8 +139,7 @@ a {
     width: 100%;
     height: 120px;
     margin-top: 150px;
-    /*color: var(--primary-white);*/
-    color: #121212;
+    color: var(--primary-white);
     font: 50px Roboto, sans-serif;
     font-weight: 500;
     line-height: 60px;
@@ -271,7 +270,7 @@ input {
 .header-mobile-icons {
     border: none;
     width: inherit;
-    margin-top: -150px;
+    margin-top: 95px;
     text-align: center;
 }
 
