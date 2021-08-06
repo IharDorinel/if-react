@@ -1,5 +1,10 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import AvailHotels from "./AvailHotels";
+
+
+import logo_vector from "../styles/booking_images/logo_vector.svg";
+import icon_night from "../styles/booking_images/Night.svg";
+import icon_account from "../styles/booking_images/AccountCircle.svg";
 
 
 import google from "../styles/booking_images/google-play-badge.svg";
@@ -24,7 +29,6 @@ const TopSection = (props) => {
       .then(data => setData(data))
   }, [currentValue]);
 
-  // const inputEl = useRef('');
 
 
   const setValue = (event) => {
@@ -33,7 +37,6 @@ const TopSection = (props) => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    // const valueInput = inputEl.current.value;
     setIsVisible(true);
 
   };
@@ -48,9 +51,7 @@ const TopSection = (props) => {
         backgroundImage: {kastelmeccano} }}>
         <div className="header-big-upper">
           <a href="#">
-            <svg className="image">
-              <use href="#logo-vector"/>
-            </svg>
+            <img src={logo_vector} className="image"/>
           </a>
 
           <nav className="header-nav">
@@ -64,33 +65,24 @@ const TopSection = (props) => {
             </div>
             <div className="header-nav-icons">
               <a href="#">
-                <svg className="icon-night">
-                  <use href="#icon-night"/>
-                </svg>
+                <img src={icon_night} className="icon-night"/>
               </a>
               <a href="#">
-                <svg className="icon-account">
-                  <use href="#icon-account"/>
-                </svg>
+                <img src={icon_account} className="icon-account"/>
               </a>
             </div>
           </nav>
           <nav className="header-nav-adapt">
             <a href="#">
-              <svg className="icon-night icon">
-                <use href="#icon-night"/>
-              </svg>
+              <img src={icon_night} className="icon-night icon"/>
             </a>
             <a href="#">
-              <svg className="icon-account icon">
-                <use href="#icon-account"/>
-              </svg>
+              <img src={icon_account} className="icon-account icon"/>
             </a>
-            <a href="#">
-              <svg className="menu-icon icon">
-                <use href="#menu-icon"/>
-              </svg>
-            </a>
+            {/*<a href="#">*/}
+            {/*  <img src={menu-icon} className="menu-icon icon">*/}
+            {/*  </img>*/}
+            {/*</a>*/}
           </nav>
         </div>
 
@@ -127,13 +119,13 @@ const TopSection = (props) => {
       </div>
         <div className="header-mobile-icons">
           <a href="#">
-            <img className="google-play"
+            <img
+              className="google-play"
                  src={google} alt="google-play"/>
           </a>
           <a href="#">
             <img className="app-store"
-                 src={appStore}
-                 alt="App_Store"/>
+                 src={appStore} alt="App_Store"/>
           </a>
         </div>
       </div>
