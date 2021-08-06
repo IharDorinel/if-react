@@ -1,7 +1,8 @@
 import React from 'react';
 
 const HomeGuestContent = ({props}) => {
-  return (
+
+      return (
     <>
       {props.map(elem =>
         <div className="home-guests-box" key={elem.id}>
