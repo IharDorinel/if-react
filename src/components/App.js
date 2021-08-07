@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 // components
 import TopSection from "./TopSection";
@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <>
-      <TopSection />
+      <TopSection/>
       <HomeGuest/>
     </>
   );

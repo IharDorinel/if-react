@@ -1,32 +1,36 @@
-import React, {useState, useEffect} from 'react';
+import React, { Component } from 'react';
 
 
 // components
 import HomeGuestContent from "./HomeGuestContent";
 
+export default class HomeGuest extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    };
+  };
 
-const HomeGuest = () => {
+componentDidMount() {
+  fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
+    .then((response) => response.json())
+    .then(data => this.setState({data: data}))
+};
 
-const [data, setData] = useState([]);
 
-  useEffect(() => {
-    fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
-      .then((response) => response.json())
-      .then(data => setData(data))
-  }, []);
-
+render() {
   return (
     <section className="homes-guests">
       <div className="homes-guests-container">
         <h1>Homes guests loves</h1>
         <div className="home-guests-gallery">
-          <HomeGuestContent props={data}/>
+          <HomeGuestContent props={this.state.data}/>
         </div>
       </div>
     </section>
   )
 }
 
-export default HomeGuest;
-
+}
 
