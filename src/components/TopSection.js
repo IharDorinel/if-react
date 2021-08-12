@@ -21,24 +21,25 @@ const TopSection = (props) => {
 
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    fetch('https://fe-student-api.herokuapp.com/api/hotels')
-      .then((response) => response.json())
-      .then(data => data.filter(obj => obj?.country?.includes(currentValue) || obj?.city?.includes(currentValue) ||
-        obj?.name?.includes(currentValue)))
-      .then(data => setData(data))
-  }, [currentValue]);
-
-
 
   const setValue = (event) => {
-   setCurrentValue(event.target.value);
+    setCurrentValue(event.target.value);
   };
+
+  const fetchData = () => {
+
+    return fetch('https://fe-student-api.herokuapp.com/api/hotels')
+      .then((response) => response.json())
+  };
+
 
   const handleSearch = (event) => {
     event.preventDefault();
     setIsVisible(true);
-
+    fetchData(currentValue)
+      .then(data => data.filter(obj => obj?.country?.includes(currentValue) || obj?.city?.includes(currentValue) ||
+        obj?.name?.includes(currentValue)))
+      .then(data => setData(data))
   };
 
 
