@@ -18,5 +18,10 @@
         "react"
     ],
     "rules": {
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "import/no-named-as-default": 0,
+        "react/prop-types": "off"
     }
 }
