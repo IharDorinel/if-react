@@ -17,7 +17,6 @@ export default class TopSection extends Component {
     super(props);
     this.state = {
     value: '',
-      visible: false,
       data: [],
       setValue: this.setValue.bind(this),
       handleSearch: this.handleSearch.bind(this)
@@ -36,10 +35,14 @@ export default class TopSection extends Component {
 
   handleSearch = (event) => {
     event.preventDefault();
-    this.setState({visible: true});
+    if(!this.state.value) {
+      this.setState( { data: [] });
+      return;
+    }
+
     this.fetchData(this.state.value)
-      .then(data => data.filter(obj => obj?.country?.includes(this.state.value) || obj?.city?.includes(this.state.value) ||
-        obj?.name?.includes(this.state.value)))
+      .then(data => data.filter(obj => obj?.country?.toLowerCase().includes(this.state.value.toLowerCase()) || obj?.city?.toLowerCase().includes(this.state.value.toLowerCase()) ||
+        obj?.name?.toLowerCase().includes(this.state.value.toLowerCase())))
       .then(data => this.setState({data: data}));
   };
 
@@ -130,7 +133,8 @@ export default class TopSection extends Component {
 
         </header>
 
-        {this.state.visible ? <AvailHotels props={this.state.data} /> : null }
+        {this.state.data.length > 0 ? <AvailHotels props={this.state.data} /> : null}
+
       </>
 
     )
