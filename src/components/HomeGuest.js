@@ -1,18 +1,15 @@
-import React, {useState, useEffect} from 'react';
-
+import React, { useState, useEffect } from 'react';
 
 // components
-import HomeGuestContent from "./HomeGuestContent";
-
+import HomeGuestContent from './HomeGuestContent';
 
 const HomeGuest = () => {
-
-const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
       .then((response) => response.json())
-      .then(data => setData(data))
+      .then((data) => setData(data));
   }, []);
 
   return (
@@ -20,13 +17,11 @@ const [data, setData] = useState([]);
       <div className="homes-guests-container">
         <h1>Homes guests loves</h1>
         <div className="home-guests-gallery">
-          <HomeGuestContent props={data}/>
+          <HomeGuestContent props={data} />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default HomeGuest;
-
-
