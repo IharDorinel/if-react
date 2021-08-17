@@ -1,0 +1,6 @@
+.avail-hotels-photo-big {
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    object-position: center;
+}

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 import FilterQuest from "./FilterQuest";
+import Layout from "./Layout";
 
 
 const Filter = ({ adultNumber, setAdultNumber, childrenNumber, setChildrenNumber, roomNumber, setRoomNumber }) => {
@@ -108,6 +109,7 @@ const Filter = ({ adultNumber, setAdultNumber, childrenNumber, setChildrenNumber
 
 
   return (
+
       <div>
 
 
@@ -174,6 +176,7 @@ const Filter = ({ adultNumber, setAdultNumber, childrenNumber, setChildrenNumber
 
         </div>
       </div>
+
     )
 
 }

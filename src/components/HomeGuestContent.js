@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const HomeGuestContent = ({props}) => {
 
@@ -15,6 +16,7 @@ const HomeGuestContent = ({props}) => {
           <p className="home-destination home-text">
             <a href="/">{elem.city}, {elem.country}</a>
           </p>
+
         </div>
       )}
     </>
