@@ -56,7 +56,7 @@ export default class TopSection extends Component {
           <div className="header-big-container" style={{backgroundImage: {kastelmeccano}}}>
             <div className="header-big-upper">
               <a href="#">
-                <img src={logo_vector} className="image"/>
+                <img src={logo_vector} className="image" alt="logo_vector"/>
               </a>
 
               <nav className="header-nav">
@@ -70,19 +70,19 @@ export default class TopSection extends Component {
                 </div>
                 <div className="header-nav-icons">
                   <a href="#">
-                    <img src={icon_night} className="icon-night"/>
+                    <img src={icon_night} className="icon-night" alt="icon_night"/>
                   </a>
                   <a href="#">
-                    <img src={icon_account} className="icon-account"/>
+                    <img src={icon_account} className="icon-account" alt="icon_account"/>
                   </a>
                 </div>
               </nav>
               <nav className="header-nav-adapt">
                 <a href="#">
-                  <img src={icon_night} className="icon-night icon"/>
+                  <img src={icon_night} className="icon-night icon" alt="icon_night"/>
                 </a>
                 <a href="#">
-                  <img src={icon_account} className="icon-account icon"/>
+                  <img src={icon_account} className="icon-account icon" alt="icon_account"/>
                 </a>
               </nav>
             </div>
