@@ -1,26 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 // components
 import AvailHotels from './AvailHotels';
-import Filter from "./Filter";
+import Filter from './Filter';
 
 // images
-import logo_vector from '../styles/booking_images/logo_vector.svg';
-import icon_night from '../styles/booking_images/Night.svg';
-import icon_account from '../styles/booking_images/AccountCircle.svg';
+import logoVector from '../styles/booking_images/logo_vector.svg';
+import iconNight from '../styles/booking_images/Night.svg';
+import iconAccount from '../styles/booking_images/AccountCircle.svg';
 import kastelmeccano from '../styles/booking_images/kastelmeccano.jpg';
 import google from '../styles/booking_images/google-play-badge.svg';
 import appStore from '../styles/booking_images/App_Store_Badge.svg';
 
-
-
 const TopSection = () => {
-
   const [currentValue, setCurrentValue] = useState('');
-
-  const [isVisible, setIsVisible] = useState(false);
 
   const [filterIsVisible, setFilterIsVisible] = useState(false);
 
@@ -34,42 +29,53 @@ const TopSection = () => {
 
   const [endDate, setEndDate] = useState(new Date());
 
-
-
   const [adultNumber, setAdultNumber] = useState(1);
 
   const [childrenNumber, setChildrenNumber] = useState(0);
 
   const [roomNumber, setRoomNumber] = useState(1);
 
+  const params = {
+    search: currentValue,
+  };
 
+  const url = new URL('https://fe-student-api.herokuapp.com/api/hotels');
 
-  useEffect(() => {
-    fetch('https://fe-student-api.herokuapp.com/api/hotels')
-      .then((response) => response.json())
-      .then((data) => data.filter((obj) => obj?.country?.includes(currentValue) || obj?.city?.includes(currentValue)
-        || obj?.name?.includes(currentValue)))
-      .then((data) => setData(data));
-  }, [currentValue]);
+  url.search = new URLSearchParams(params).toString();
 
   const setValue = (event) => {
     setCurrentValue(event.target.value);
   };
 
+  const fetchData = () => fetch(url)
+    .then((response) => response.json());
+
   const handleSearch = (event) => {
     event.preventDefault();
-    setIsVisible(true);
+    if (!currentValue.trim()) {
+      setData([]);
+      return (
+        alert('Please enter some value!')
+      );
+    }
+    fetchData(currentValue)
+      .then((data) => data.filter((obj) => obj?.country?.toLowerCase().includes(currentValue.toLowerCase())
+        || obj?.city?.toLowerCase().includes(currentValue.toLowerCase())
+        || obj?.name?.toLowerCase().includes(currentValue.toLowerCase())))
+      .then((data) => setData(data))
+      .catch(() => setData([]));
   };
+
+  const availHotels = data.length > 0 ? <AvailHotels props={data} /> : null;
 
   const calendarShow = () => {
     setCheckUpper('check__label--desktop-up');
     setDatePickerIsVisible(true);
-  }
+  };
 
   const filterShow = () => {
     setFilterIsVisible((prev) => !prev);
   };
-
 
   return (
     <>
@@ -78,34 +84,34 @@ const TopSection = () => {
 
         <div className="header-big-container" style={{ backgroundImage: { kastelmeccano } }}>
           <div className="header-big-upper">
-            <a href="#">
-              <img src={logo_vector} className="image" />
+            <a href="/">
+              <img src={logoVector} className="image" />
             </a>
 
             <nav className="header-nav">
               <div className="header-nav-words">
-                <a href="#">
+                <a href="/">
                   <span id="stays" className="word">Stays</span>
                 </a>
-                <a href="#">
+                <a href="/">
                   <span id="attractions" className="word">Attractions</span>
                 </a>
               </div>
               <div className="header-nav-icons">
-                <a href="#">
-                  <img src={icon_night} className="icon-night" />
+                <a href="/">
+                  <img src={iconNight} className="icon-night" />
                 </a>
-                <a href="#">
-                  <img src={icon_account} className="icon-account" />
+                <a href="/">
+                  <img src={iconAccount} className="icon-account" />
                 </a>
               </div>
             </nav>
             <nav className="header-nav-adapt">
-              <a href="#">
-                <img src={icon_night} className="icon-night icon" />
+              <a href="/">
+                <img src={iconNight} className="icon-night icon" />
               </a>
-              <a href="#">
-                <img src={icon_account} className="icon-account icon" />
+              <a href="/">
+                <img src={iconAccount} className="icon-account icon" />
               </a>
             </nav>
           </div>
@@ -132,18 +138,20 @@ const TopSection = () => {
               </div>
               <div className="search-form__group check" onClick={calendarShow}>
 
-                { datePickerIsVisible ?
-                  <div>
-                <DatePicker wrapperClassName="datePicker" selected={startDate} startDate={startDate} endDate={endDate} minDate={startDate} onChange={(date) => setStartDate(date)} />
-                <DatePicker wrapperClassName="datePicker" selected={endDate} startDate={startDate} endDate={endDate} minDate={startDate} onChange={(date) => setEndDate(date)} />
-                  </div>
+                { datePickerIsVisible
+                  ? (
+                    <div>
+                      <DatePicker wrapperClassName="datePicker" selected={startDate} startDate={startDate} endDate={endDate} minDate={startDate} onChange={(date) => setStartDate(date)} />
+                      <DatePicker wrapperClassName="datePicker" selected={endDate} startDate={startDate} endDate={endDate} minDate={startDate} onChange={(date) => setEndDate(date)} />
+                    </div>
+                  )
                   : null }
 
                 <input type="text" className="check__input" name="check-in" id="check-in" placeholder=" " />
-                 <label htmlFor="check-in" className="check__label">Check-in</label>
+                <label htmlFor="check-in" className="check__label">Check-in</label>
                 <input type="text" className="check__input" name="check-out" id="check-out" placeholder=" " />
-                 <label htmlFor="check-out" className="check__label">Check-out</label>
-                 <label htmlFor="check-in" className={checkUpper}>Check-in — Check-out</label>
+                <label htmlFor="check-out" className="check__label">Check-out</label>
+                <label htmlFor="check-in" className={checkUpper}>Check-in — Check-out</label>
               </div>
               <div className="search-form__group related" onClick={filterShow}>
                 <span className="guests_count">
@@ -169,12 +177,17 @@ const TopSection = () => {
               </div>
               <button type="submit" value="Search" className="submit-button" onClick={handleSearch}>Search</button>
 
-
               {filterIsVisible
 
-                ? ( <Filter adultNumber={adultNumber} setAdultNumber={setAdultNumber}
-                            childrenNumber={childrenNumber} setChildrenNumber={setChildrenNumber}
-                            roomNumber={roomNumber} setRoomNumber={setRoomNumber}/>
+                ? (
+                  <Filter
+                    adultNumber={adultNumber}
+                    setAdultNumber={setAdultNumber}
+                    childrenNumber={childrenNumber}
+                    setChildrenNumber={setChildrenNumber}
+                    roomNumber={roomNumber}
+                    setRoomNumber={setRoomNumber}
+                  />
                 )
 
                 : null}
@@ -183,14 +196,14 @@ const TopSection = () => {
           </div>
 
           <div className="header-mobile-icons">
-            <a href="#">
+            <a href="/">
               <img
                 className="google-play"
                 src={google}
                 alt="google-play"
               />
             </a>
-            <a href="#">
+            <a href="/">
               <img
                 className="app-store"
                 src={appStore}
@@ -202,9 +215,10 @@ const TopSection = () => {
 
       </header>
 
-      { isVisible ? <AvailHotels props={data} /> : null}
+      {availHotels}
     </>
   );
 };
 
 export default TopSection;
+

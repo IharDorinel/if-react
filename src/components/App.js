@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 // components
-import TopSection from "./TopSection";
+import TopSection from './TopSection';
 import HomeGuest from './HomeGuest';
-
 
 // styles
 import '../styles/components/App.css';
@@ -14,18 +13,11 @@ import '../styles/components/AvailHotel.css';
 import '../styles/components/TopSection.css';
 import '../styles/components/Filter.css';
 
-
-const App = () => {
-
-
-  return (
-    <>
-      <TopSection />
-      <HomeGuest/>
-    </>
-  );
-}
+const App = () => (
+  <>
+    <TopSection />
+    <HomeGuest />
+  </>
+);
 
 export default App;
-
-
