@@ -42,11 +42,11 @@ const TopSection = () => {
     }
 
     fetchData(currentValue)
-      // eslint-disable-next-line no-shadow,max-len
+
       .then((data) => data.filter((obj) => obj?.country?.toLowerCase().includes(currentValue.toLowerCase())
         || obj?.city?.toLowerCase().includes(currentValue.toLowerCase())
         || obj?.name?.toLowerCase().includes(currentValue.toLowerCase())))
-      // eslint-disable-next-line no-shadow
+
       .then((data) => setData(data))
       .catch(() => setData([]));
   };
@@ -109,6 +109,7 @@ const TopSection = () => {
                   required
                   onChange={setValue}
                 />
+
                 <label htmlFor="destination" className="destination__label">Your destination or hotel name</label>
               </div>
               <div className="search-form__group check">
