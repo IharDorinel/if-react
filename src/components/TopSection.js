@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import AvailHotels from './AvailHotels';
 
 // images
-import logo_vector from '../styles/booking_images/logo_vector.svg';
-import icon_night from '../styles/booking_images/Night.svg';
-import icon_account from '../styles/booking_images/AccountCircle.svg';
+import logoVector from '../styles/booking_images/logo_vector.svg';
+import iconNight from '../styles/booking_images/Night.svg';
+import iconAccount from '../styles/booking_images/AccountCircle.svg';
 import kastelmeccano from '../styles/booking_images/kastelmeccano.jpg';
 import google from '../styles/booking_images/google-play-badge.svg';
 import appStore from '../styles/booking_images/App_Store_Badge.svg';
@@ -33,16 +33,20 @@ const TopSection = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
+
     if (!currentValue.trim()) {
       setData([]);
       return (
         alert('Please enter some value!')
       );
     }
+
     fetchData(currentValue)
+      // eslint-disable-next-line no-shadow,max-len
       .then((data) => data.filter((obj) => obj?.country?.toLowerCase().includes(currentValue.toLowerCase())
         || obj?.city?.toLowerCase().includes(currentValue.toLowerCase())
         || obj?.name?.toLowerCase().includes(currentValue.toLowerCase())))
+      // eslint-disable-next-line no-shadow
       .then((data) => setData(data))
       .catch(() => setData([]));
   };
@@ -55,34 +59,34 @@ const TopSection = () => {
 
         <div className="header-big-container" style={{ backgroundImage: { kastelmeccano } }}>
           <div className="header-big-upper">
-            <a href="#">
-              <img src={logo_vector} className="image" />
+            <a href="/">
+              <img src={logoVector} className="image" alt="logoVector" />
             </a>
 
             <nav className="header-nav">
               <div className="header-nav-words">
-                <a href="#">
+                <a href="/">
                   <span id="stays" className="word">Stays</span>
                 </a>
-                <a href="#">
+                <a href="/">
                   <span id="attractions" className="word">Attractions</span>
                 </a>
               </div>
               <div className="header-nav-icons">
-                <a href="#">
-                  <img src={icon_night} className="icon-night" />
+                <a href="/">
+                  <img src={iconNight} className="icon-night" alt="iconNight" />
                 </a>
-                <a href="#">
-                  <img src={icon_account} className="icon-account" />
+                <a href="/">
+                  <img src={iconAccount} className="icon-account" alt="iconAccount" />
                 </a>
               </div>
             </nav>
             <nav className="header-nav-adapt">
-              <a href="#">
-                <img src={icon_night} className="icon-night icon" />
+              <a href="/">
+                <img src={iconNight} className="icon-night icon" alt="iconNight" />
               </a>
-              <a href="#">
-                <img src={icon_account} className="icon-account icon" />
+              <a href="/">
+                <img src={iconAccount} className="icon-account icon" alt="iconAccount" />
               </a>
             </nav>
           </div>
@@ -126,14 +130,14 @@ const TopSection = () => {
             </form>
           </div>
           <div className="header-mobile-icons">
-            <a href="#">
+            <a href="/">
               <img
                 className="google-play"
                 src={google}
                 alt="google-play"
               />
             </a>
-            <a href="#">
+            <a href="/">
               <img
                 className="app-store"
                 src={appStore}
