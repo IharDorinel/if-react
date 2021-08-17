@@ -10,9 +10,9 @@ import Hotel from './Hotel';
 import Layout from './Layout';
 
 // images
-import logo_vector from '../styles/booking_images/logo_vector.svg';
-import icon_night from '../styles/booking_images/Night.svg';
-import icon_account from '../styles/booking_images/AccountCircle.svg';
+import logoVector from '../styles/booking_images/logo_vector.svg';
+import iconNight from '../styles/booking_images/Night.svg';
+import iconAccount from '../styles/booking_images/AccountCircle.svg';
 import kastelmeccano from '../styles/booking_images/kastelmeccano.jpg';
 import google from '../styles/booking_images/google-play-badge.svg';
 import appStore from '../styles/booking_images/App_Store_Badge.svg';
@@ -88,11 +88,11 @@ const TopSection = () => {
       <>
         <Switch>
 
-           {/*<Layout>*/}
+           <Layout>
           <Route path="/hotels/:id">
             <Hotel data={data} />
           </Route>
-           {/*</Layout> */}
+           </Layout>
 
         </Switch>
 
@@ -101,7 +101,7 @@ const TopSection = () => {
           <div className="header-big-container" style={{ backgroundImage: { kastelmeccano } }}>
             <div className="header-big-upper">
               <a href="#">
-                <img src={logo_vector} className="image" />
+                <img src={logoVector} className="image" alt="logoVector" />
               </a>
 
               <nav className="header-nav">
@@ -115,19 +115,19 @@ const TopSection = () => {
                 </div>
                 <div className="header-nav-icons">
                   <a href="#">
-                    <img src={icon_night} className="icon-night" />
+                    <img src={iconNight} className="icon-night" alt="iconNight" />
                   </a>
                   <a href="#">
-                    <img src={icon_account} className="icon-account" />
+                    <img src={iconAccount} className="icon-account" alt="iconAccount" />
                   </a>
                 </div>
               </nav>
               <nav className="header-nav-adapt">
                 <a href="#">
-                  <img src={icon_night} className="icon-night icon" />
+                  <img src={iconNight} className="icon-night icon" alt="iconNight" />
                 </a>
                 <a href="#">
-                  <img src={icon_account} className="icon-account icon" />
+                  <img src={iconAccount} className="icon-account icon" alt="iconAccount" />
                 </a>
               </nav>
             </div>
