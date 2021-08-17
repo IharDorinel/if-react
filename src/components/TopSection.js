@@ -85,7 +85,9 @@ const TopSection = () => {
         <div className="header-big-container" >
           <div className="header-big-upper">
             <a href="/">
+
               <img src={logoVector} className="image" alt="logoVector"/>
+
             </a>
 
             <nav className="header-nav">
@@ -99,19 +101,23 @@ const TopSection = () => {
               </div>
               <div className="header-nav-icons">
                 <a href="/">
+
                   <img src={iconNight} className="icon-night" alt="iconNight" />
                 </a>
                 <a href="/">
                   <img src={iconAccount} className="icon-account" alt="iconAccount" />
+
                 </a>
               </div>
             </nav>
             <nav className="header-nav-adapt">
               <a href="/">
+
                 <img src={iconNight} className="icon-night icon" alt="iconNight" />
               </a>
               <a href="/">
                 <img src={iconAccount} className="icon-account icon" alt="iconAccount" />
+
               </a>
             </nav>
           </div>
@@ -221,3 +227,4 @@ const TopSection = () => {
 };
 
 export default TopSection;
+
