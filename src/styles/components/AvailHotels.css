@@ -1,0 +1,28 @@
+h1 {
+    font: 40px Roboto, sans-serif;
+    font-weight: 500;
+    line-height: 46px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.avail-hotels {
+    background-color: #EAF0F9;
+}
+
+.avail-hotels-container {
+    padding: 120px 25px 120px;
+    width: 1260px;
+    margin: auto;
+}
+
+.avail-hotels-gallery {
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    position: relative;
+}
+
+/*.filter-hidden {*/
+/*    display: none*/
+/*}*/
