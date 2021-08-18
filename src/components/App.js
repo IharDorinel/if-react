@@ -2,7 +2,6 @@ import React from 'react';
 
 // components
 
-// eslint-disable-next-line import/no-named-as-default-member
 import TopSection from './TopSection';
 import HomeGuest from './HomeGuest';
 
