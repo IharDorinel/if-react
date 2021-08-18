@@ -10,7 +10,6 @@ import Filter from './Filter';
 import logoVector from '../styles/booking_images/logo_vector.svg';
 import iconNight from '../styles/booking_images/Night.svg';
 import iconAccount from '../styles/booking_images/AccountCircle.svg';
-import kastelmeccano from '../styles/booking_images/kastelmeccano.jpg';
 import google from '../styles/booking_images/google-play-badge.svg';
 import appStore from '../styles/booking_images/App_Store_Badge.svg';
 
@@ -82,11 +81,11 @@ const TopSection = () => {
 
       <header className="header">
 
-        <div className="header-big-container" >
+        <div className="header-big-container">
           <div className="header-big-upper">
             <a href="/">
 
-              <img src={logoVector} className="image" alt="logoVector"/>
+              <img src={logoVector} className="image" alt="logoVector" />
 
             </a>
 
@@ -227,4 +226,3 @@ const TopSection = () => {
 };
 
 export default TopSection;
-
