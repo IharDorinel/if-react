@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
+
 // components
-import AvailHotels from "./AvailHotels";
+import AvailHotels from './AvailHotels';
 
 // images
-import logo_vector from "../styles/booking_images/logo_vector.svg";
-import icon_night from "../styles/booking_images/Night.svg";
-import icon_account from "../styles/booking_images/AccountCircle.svg";
-import kastelmeccano from "../styles/booking_images/kastelmeccano.jpg"
+import logoVector from "../styles/booking_images/logo_vector.svg";
+import iconNight from "../styles/booking_images/Night.svg";
+import iconAccount from "../styles/booking_images/AccountCircle.svg";
 import google from "../styles/booking_images/google-play-badge.svg";
 import appStore from "../styles/booking_images/App_Store_Badge.svg";
 
@@ -44,6 +44,7 @@ export default class TopSection extends Component {
       .then(data => data.filter(obj => obj?.country?.toLowerCase().includes(this.state.value.toLowerCase()) || obj?.city?.toLowerCase().includes(this.state.value.toLowerCase()) ||
         obj?.name?.toLowerCase().includes(this.state.value.toLowerCase())))
       .then(data => this.setState({data: data}));
+
   };
 
 
@@ -53,10 +54,10 @@ export default class TopSection extends Component {
         <header className="header">
 
 
-          <div className="header-big-container" style={{backgroundImage: {kastelmeccano}}}>
+          <div className="header-big-container">
             <div className="header-big-upper">
               <a href="#">
-                <img src={logo_vector} className="image" alt="logo_vector"/>
+                <img src={logoVector} className="image" alt="logoVector"/>
               </a>
 
               <nav className="header-nav">
@@ -70,19 +71,19 @@ export default class TopSection extends Component {
                 </div>
                 <div className="header-nav-icons">
                   <a href="#">
-                    <img src={icon_night} className="icon-night" alt="icon_night"/>
+                    <img src={iconNight} className="icon-night" alt="iconNight"/>
                   </a>
                   <a href="#">
-                    <img src={icon_account} className="icon-account" alt="icon_account"/>
+                    <img src={iconAccount} className="icon-account" alt="iconAccount"/>
                   </a>
                 </div>
               </nav>
               <nav className="header-nav-adapt">
                 <a href="#">
-                  <img src={icon_night} className="icon-night icon" alt="icon_night"/>
+                  <img src={iconNight} className="icon-night icon" alt="iconNight"/>
                 </a>
                 <a href="#">
-                  <img src={icon_account} className="icon-account icon" alt="icon_account"/>
+                  <img src={iconAccount} className="icon-account icon" alt="iconAccount"/>
                 </a>
               </nav>
             </div>
@@ -141,3 +142,4 @@ export default class TopSection extends Component {
   }
 
 }
+
