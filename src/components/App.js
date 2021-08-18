@@ -1,10 +1,8 @@
 import React from 'react';
 
-
 // components
 import HomeGuest from './HomeGuest';
-import Layout from "./Layout";
-
+import Layout from './Layout';
 
 // styles
 import '../styles/components/App.css';
@@ -17,24 +15,16 @@ import '../styles/components/Filter.css';
 import '../styles/components/Footer.css';
 import '../styles/components/Hotel.css';
 
+const App = () => (
 
+  <Layout>
+    <>
 
-const App = () => {
+      <HomeGuest />
 
+    </>
+  </Layout>
 
-  return (
-
-
-        <Layout>
-          <>
-
-        <HomeGuest />
-
-            </>
-        </Layout>
-
-
-  );
-}
+);
 
 export default App;

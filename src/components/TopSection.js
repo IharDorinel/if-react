@@ -13,11 +13,8 @@ import Layout from './Layout';
 import logoVector from '../styles/booking_images/logo_vector.svg';
 import iconNight from '../styles/booking_images/Night.svg';
 import iconAccount from '../styles/booking_images/AccountCircle.svg';
-import kastelmeccano from '../styles/booking_images/kastelmeccano.jpg';
 import google from '../styles/booking_images/google-play-badge.svg';
 import appStore from '../styles/booking_images/App_Store_Badge.svg';
-
-
 
 const TopSection = () => {
   const [currentValue, setCurrentValue] = useState('');
@@ -57,6 +54,7 @@ const TopSection = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
+
     if (!currentValue.trim()) {
       setData([]);
       return (
@@ -88,45 +86,45 @@ const TopSection = () => {
       <>
         <Switch>
 
-           <Layout>
-          <Route path="/hotels/:id">
-            <Hotel data={data} />
-          </Route>
-           </Layout>
+          <Layout>
+            <Route path="/hotels/:id">
+              <Hotel data={data} />
+            </Route>
+          </Layout>
 
         </Switch>
 
         <header className="header">
 
-          <div className="header-big-container" style={{ backgroundImage: { kastelmeccano } }}>
+          <div className="header-big-container">
             <div className="header-big-upper">
-              <a href="#">
+              <a href="/">
                 <img src={logoVector} className="image" alt="logoVector" />
               </a>
 
               <nav className="header-nav">
                 <div className="header-nav-words">
-                  <a href="#">
+                  <a href="/">
                     <span id="stays" className="word">Stays</span>
                   </a>
-                  <a href="#">
+                  <a href="/">
                     <span id="attractions" className="word">Attractions</span>
                   </a>
                 </div>
                 <div className="header-nav-icons">
-                  <a href="#">
+                  <a href="/">
                     <img src={iconNight} className="icon-night" alt="iconNight" />
                   </a>
-                  <a href="#">
+                  <a href="/">
                     <img src={iconAccount} className="icon-account" alt="iconAccount" />
                   </a>
                 </div>
               </nav>
               <nav className="header-nav-adapt">
-                <a href="#">
+                <a href="/">
                   <img src={iconNight} className="icon-night icon" alt="iconNight" />
                 </a>
-                <a href="#">
+                <a href="/">
                   <img src={iconAccount} className="icon-account icon" alt="iconAccount" />
                 </a>
               </nav>
@@ -157,9 +155,10 @@ const TopSection = () => {
                   { datePickerIsVisible
                     ? (
                       <div>
-                      <DatePicker wrapperClassName="datePicker" selected={startDate} startDate={startDate} endDate={endDate} minDate={startDate} onChange={(date) => setStartDate(date)} />
-                      <DatePicker wrapperClassName="datePicker" selected={endDate} startDate={startDate} endDate={endDate} minDate={startDate} onChange={(date) => setEndDate(date)} />
-                    </div>
+                        {/* eslint-disable-next-line max-len */}
+                        <DatePicker wrapperClassName="datePicker" selected={startDate} startDate={startDate} endDate={endDate} minDate={startDate} onChange={(date) => setStartDate(date)} />
+                        <DatePicker wrapperClassName="datePicker" selected={endDate} startDate={startDate} endDate={endDate} minDate={startDate} onChange={(date) => setEndDate(date)} />
+                      </div>
                     )
                     : null }
 
@@ -175,19 +174,19 @@ const TopSection = () => {
                       {adultNumber}
                       {' '}
                       Adults
-                  </span>
+                    </span>
                     <span id="children">
                     &nbsp;—&nbsp;
                       {childrenNumber}
                       {' '}
                       Children
-                  </span>
+                    </span>
                     <span id="rooms">
                     &nbsp;—&nbsp;
                       {roomNumber}
                       {' '}
                       Rooms
-                  </span>
+                    </span>
                   </span>
 
                 </div>
@@ -212,14 +211,14 @@ const TopSection = () => {
             </div>
 
             <div className="header-mobile-icons">
-              <a href="#">
+              <a href="/">
                 <img
                   className="google-play"
                   src={google}
                   alt="google-play"
                 />
               </a>
-              <a href="#">
+              <a href="/">
                 <img
                   className="app-store"
                   src={appStore}
