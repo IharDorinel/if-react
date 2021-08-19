@@ -17,14 +17,15 @@ export default class HomeGuest extends Component {
       .then((data) => this.setState({ data }));
   }
 
+  data = this.state.data;
+
   render() {
     return (
       <section className="homes-guests">
         <div className="homes-guests-container">
           <h1>Homes guests loves</h1>
           <div className="home-guests-gallery">
-            {/* eslint-disable-next-line react/destructuring-assignment */}
-            <HomeGuestContent props={this.state.data} />
+            <HomeGuestContent props={data} />
           </div>
         </div>
       </section>
