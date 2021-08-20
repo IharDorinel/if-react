@@ -10,7 +10,7 @@ import iconNight from "../styles/booking_images/Night.svg";
 import iconAccount from "../styles/booking_images/AccountCircle.svg";
 import google from "../styles/booking_images/google-play-badge.svg";
 import appStore from "../styles/booking_images/App_Store_Badge.svg";
-
+import kastelmeccano from "../styles/booking_images/kastelmeccano.jpg";
 
 export default class TopSection extends Component {
   constructor(props) {
@@ -54,7 +54,7 @@ export default class TopSection extends Component {
         <header className="header">
 
 
-          <div className="header-big-container">
+          <div className="header-big-container" style={{backgroundImage: {kastelmeccano}}}>
             <div className="header-big-upper">
               <a href="#">
                 <img src={logoVector} className="image" alt="logoVector"/>

@@ -17,9 +17,9 @@ export default class HomeGuest extends Component {
       .then((data) => this.setState({ data }));
   }
 
-  data = this.state.data;
-
   render() {
+    const { data } = this.state;
+
     return (
       <section className="homes-guests">
         <div className="homes-guests-container">
