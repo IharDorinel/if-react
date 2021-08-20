@@ -32,6 +32,9 @@
         "no-shadow": "off",
         "consistent-return": "off",
         "max-len": ["error", { "code": 120 }],
+        "react/prefer-stateless-function": "off",
+        "no-useless-constructor": "off",
+        "import/prefer-default-export": "off",
         "jsx-a11y/label-has-associated-control": [
             "error",
             {
