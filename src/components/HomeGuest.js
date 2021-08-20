@@ -9,7 +9,6 @@ const HomeGuest = () => {
   useEffect(() => {
     fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
       .then((response) => response.json())
-      // eslint-disable-next-line no-shadow
       .then((data) => setData(data));
   }, []);
 
