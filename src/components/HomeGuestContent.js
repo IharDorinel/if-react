@@ -1,7 +1,9 @@
 import React from 'react';
 
 const HomeGuestContent = ({ props }) => (
+
   <>
+    console.log(props)
     {props.map((elem) => (
       <div className="home-guests-box" key={elem.id}>
         <a href="/" className="home-guests-photo-link">
@@ -16,11 +18,11 @@ const HomeGuestContent = ({ props }) => (
             ,
             {' '}
             {elem.country}
-          </a>
-        </p>
-      </div>
-    ))}
-  </>
-);
+              </a>
+            </p>
+          </div>
+        ))}
+      </>
+    );
 
 export default HomeGuestContent;

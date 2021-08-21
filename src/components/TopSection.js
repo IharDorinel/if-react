@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+
 // components
 import AvailHotels from './AvailHotels';
 import Filter from './Filter';
@@ -40,8 +41,6 @@ const TopSection = () => {
 
   const url = new URL('https://fe-student-api.herokuapp.com/api/hotels');
 
-  url.search = new URLSearchParams(params).toString();
-
   const setValue = (event) => {
     setCurrentValue(event.target.value);
   };
@@ -57,15 +56,18 @@ const TopSection = () => {
         alert('Please enter some value!')
       );
     }
+
     fetchData(currentValue)
       .then((data) => data.filter((obj) => obj?.country?.toLowerCase().includes(currentValue.toLowerCase())
         || obj?.city?.toLowerCase().includes(currentValue.toLowerCase())
         || obj?.name?.toLowerCase().includes(currentValue.toLowerCase())))
       .then((data) => setData(data))
       .catch(() => setData([]));
+
   };
 
   const availHotels = data.length > 0 ? <AvailHotels props={data} /> : null;
+
 
   const calendarShow = () => {
     setCheckUpper('check__label--desktop-up');
@@ -111,14 +113,13 @@ const TopSection = () => {
             </nav>
             <nav className="header-nav-adapt">
               <a href="/">
-
                 <img src={iconNight} className="icon-night icon" alt="iconNight" />
               </a>
               <a href="/">
                 <img src={iconAccount} className="icon-account icon" alt="iconAccount" />
-
               </a>
             </nav>
+            </div>
           </div>
 
           <p className="search-title">Discover stays to live, work or just relax</p>
@@ -216,7 +217,6 @@ const TopSection = () => {
               />
             </a>
           </div>
-        </div>
 
       </header>
 
@@ -226,3 +226,5 @@ const TopSection = () => {
 };
 
 export default TopSection;
+
+

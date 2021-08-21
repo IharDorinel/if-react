@@ -1,17 +1,15 @@
 import React from 'react';
-
-// components
-import AvailHotel from './AvailHotel';
+import AvailHotel from "./AvailHotel";
 
 const AvailHotels = ({ props }) => (
+
   <section className="avail-hotels filter-hidden">
     <div className="avail-hotels-container">
       <h1>Available Hotels</h1>
       <div className="avail-hotels-gallery">
-        <AvailHotel props={props} />
+        <AvailHotel props={props}/>
       </div>
     </div>
-  </section>
-);
+  </section>)
 
 export default AvailHotels;
