@@ -1,5 +1,5 @@
 import React from 'react';
-import AvailHotel from "./AvailHotel";
+import AvailHotel from './AvailHotel';
 
 const AvailHotels = ({ props }) => (
 
@@ -7,9 +7,10 @@ const AvailHotels = ({ props }) => (
     <div className="avail-hotels-container">
       <h1>Available Hotels</h1>
       <div className="avail-hotels-gallery">
-        <AvailHotel props={props}/>
+        <AvailHotel props={props} />
       </div>
     </div>
-  </section>)
+  </section>
+);
 
 export default AvailHotels;

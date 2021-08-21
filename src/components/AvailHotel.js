@@ -8,7 +8,7 @@ const AvailHotel = ({ props }) => (
           <img className="avail-hotels-photo" src={elem.imageUrl} alt="hotel_leopold" />
         </a>
 
-        <p className="home-hotel-name home-text"><a href="#">{elem.name}</a></p>
+        <p className="home-hotel-name home-text"><a href="/">{elem.name}</a></p>
 
         <p className="home-destination home-text">
           <a href="/">

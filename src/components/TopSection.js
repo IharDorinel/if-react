@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-
 // components
 import AvailHotels from './AvailHotels';
 import Filter from './Filter';
@@ -11,6 +10,7 @@ import Filter from './Filter';
 import logoVector from '../styles/booking_images/logo_vector.svg';
 import iconNight from '../styles/booking_images/Night.svg';
 import iconAccount from '../styles/booking_images/AccountCircle.svg';
+import kastelmeccano from '../styles/booking_images/kastelmeccano.jpg';
 import google from '../styles/booking_images/google-play-badge.svg';
 import appStore from '../styles/booking_images/App_Store_Badge.svg';
 
@@ -41,6 +41,8 @@ const TopSection = () => {
 
   const url = new URL('https://fe-student-api.herokuapp.com/api/hotels');
 
+  url.search = new URLSearchParams(params).toString();
+
   const setValue = (event) => {
     setCurrentValue(event.target.value);
   };
@@ -50,6 +52,7 @@ const TopSection = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
+
     if (!currentValue.trim()) {
       setData([]);
       return (
@@ -58,16 +61,16 @@ const TopSection = () => {
     }
 
     fetchData(currentValue)
+
       .then((data) => data.filter((obj) => obj?.country?.toLowerCase().includes(currentValue.toLowerCase())
         || obj?.city?.toLowerCase().includes(currentValue.toLowerCase())
         || obj?.name?.toLowerCase().includes(currentValue.toLowerCase())))
+
       .then((data) => setData(data))
       .catch(() => setData([]));
-
   };
 
   const availHotels = data.length > 0 ? <AvailHotels props={data} /> : null;
-
 
   const calendarShow = () => {
     setCheckUpper('check__label--desktop-up');
@@ -80,15 +83,12 @@ const TopSection = () => {
 
   return (
     <>
-
       <header className="header">
 
-        <div className="header-big-container">
+        <div className="header-big-container" style={{ backgroundImage: { kastelmeccano } }}>
           <div className="header-big-upper">
             <a href="/">
-
               <img src={logoVector} className="image" alt="logoVector" />
-
             </a>
 
             <nav className="header-nav">
@@ -102,12 +102,10 @@ const TopSection = () => {
               </div>
               <div className="header-nav-icons">
                 <a href="/">
-
                   <img src={iconNight} className="icon-night" alt="iconNight" />
                 </a>
                 <a href="/">
                   <img src={iconAccount} className="icon-account" alt="iconAccount" />
-
                 </a>
               </div>
             </nav>
@@ -119,7 +117,6 @@ const TopSection = () => {
                 <img src={iconAccount} className="icon-account icon" alt="iconAccount" />
               </a>
             </nav>
-            </div>
           </div>
 
           <p className="search-title">Discover stays to live, work or just relax</p>
@@ -140,6 +137,7 @@ const TopSection = () => {
                   required
                   onChange={setValue}
                 />
+
                 <label htmlFor="destination" className="destination__label">Your destination or hotel name</label>
               </div>
               <div className="search-form__group check" onClick={calendarShow}>
@@ -152,7 +150,6 @@ const TopSection = () => {
                     </div>
                   )
                   : null }
-
                 <input type="text" className="check__input" name="check-in" id="check-in" placeholder=" " />
                 <label htmlFor="check-in" className="check__label">Check-in</label>
                 <input type="text" className="check__input" name="check-out" id="check-out" placeholder=" " />
@@ -160,6 +157,7 @@ const TopSection = () => {
                 <label htmlFor="check-in" className={checkUpper}>Check-in — Check-out</label>
               </div>
               <div className="search-form__group related" onClick={filterShow}>
+
                 <span className="guests_count">
                   <span id="adults">
                     {adultNumber}
@@ -167,13 +165,13 @@ const TopSection = () => {
                     Adults
                   </span>
                   <span id="children">
-                    &nbsp;—&nbsp;
+    &nbsp;—&nbsp;
                     {childrenNumber}
                     {' '}
                     Children
                   </span>
                   <span id="rooms">
-                    &nbsp;—&nbsp;
+    &nbsp;—&nbsp;
                     {roomNumber}
                     {' '}
                     Rooms
@@ -182,7 +180,6 @@ const TopSection = () => {
 
               </div>
               <button type="submit" value="Search" className="submit-button" onClick={handleSearch}>Search</button>
-
               {filterIsVisible
 
                 ? (
@@ -200,7 +197,6 @@ const TopSection = () => {
 
             </form>
           </div>
-
           <div className="header-mobile-icons">
             <a href="/">
               <img
@@ -217,14 +213,13 @@ const TopSection = () => {
               />
             </a>
           </div>
+        </div>
 
       </header>
-
       {availHotels}
+
     </>
   );
 };
 
 export default TopSection;
-
-
