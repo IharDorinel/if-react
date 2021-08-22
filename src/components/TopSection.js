@@ -145,8 +145,22 @@ const TopSection = () => {
                 { datePickerIsVisible
                   ? (
                     <div>
-                      <DatePicker wrapperClassName="datePicker" selected={startDate} startDate={startDate} endDate={endDate} minDate={startDate} onChange={(date) => setStartDate(date)} />
-                      <DatePicker wrapperClassName="datePicker" selected={endDate} startDate={startDate} endDate={endDate} minDate={startDate} onChange={(date) => setEndDate(date)} />
+                      <DatePicker
+                        wrapperClassName="datePicker"
+                        selected={startDate}
+                        startDate={startDate}
+                        endDate={endDate}
+                        minDate={startDate}
+                        onChange={(date) => setStartDate(date)}
+                      />
+                      <DatePicker
+                        wrapperClassName="datePicker"
+                        selected={endDate}
+                        startDate={startDate}
+                        endDate={endDate}
+                        minDate={startDate}
+                        onChange={(date) => setEndDate(date)}
+                      />
                     </div>
                   )
                   : null }
