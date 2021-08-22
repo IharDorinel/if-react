@@ -12,6 +12,7 @@ import '../styles/components/HomeGuestContent.css';
 import '../styles/components/AvailHotels.css';
 import '../styles/components/AvailHotel.css';
 import '../styles/components/TopSection.css';
+import '../styles/components/Filter.css';
 
 const App = () => (
   <>
