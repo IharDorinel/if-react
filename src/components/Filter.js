@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import FilterQuest from "./FilterQuest";
-import Layout from "./Layout";
+import FilterQuest from './FilterQuest';
 
-
-const Filter = ({ adultNumber, setAdultNumber, childrenNumber, setChildrenNumber, roomNumber, setRoomNumber }) => {
-
+const Filter = ({
+  adultNumber, setAdultNumber, childrenNumber, setChildrenNumber, roomNumber, setRoomNumber,
+}) => {
   const [filterHeight, setFilterHeight] = useState('filter-related');
 
   const [filterAdultIsDisabled, setFilterAdultIsDisabled] = useState('filter-disabled');
@@ -22,12 +21,9 @@ const Filter = ({ adultNumber, setAdultNumber, childrenNumber, setChildrenNumber
   const [changeRoomIsDisabled, setChangeRoomIsDisabled] = useState('change-disabled');
   const [changeRoomIsActive, setChangeRoomIsActive] = useState('change');
 
-
   const childrenSection = childrenNumber > 0 ? <FilterQuest childrenCount={childrenNumber} /> : null;
 
-
   const increaseAdultNumber = () => {
-
     if (adultNumber === 29) {
       setFilterAdultIsActive('filter-disabled');
       setChangeAdultIsActive('change-disabled');
@@ -107,79 +103,75 @@ const Filter = ({ adultNumber, setAdultNumber, childrenNumber, setChildrenNumber
     }
   };
 
-
   return (
 
-      <div>
+    <div>
 
+      <div className={filterHeight}>
 
-        <div className={filterHeight}>
+        <div className="filter-related-bigCont">
 
-          <div className="filter-related-bigCont">
+          <div className="filter-related-cont">
 
-            <div className="filter-related-cont">
-
-              <p className="filter-related-text">Adults</p>
-              <div className="filter-related-change-cont">
-                <div id="changeMinusAdults" className={filterAdultIsDisabled}>
-                  <p
-                    id="changeDisabledMinusAdults"
-                    className={changeAdultIsDisabled}
-                    onClick={decreaseAdultNumber}
-                  >
-                    -
-                  </p>
-                </div>
-                <p id="numberAdults" className="filter-related-text">{adultNumber}</p>
-                <div id="changePlusAdults" className={filterAdultIsActive}>
-                  <p id="changeDisabledPlusAdults" className={changeAdultIsActive} onClick={increaseAdultNumber}>+</p>
-                </div>
+            <p className="filter-related-text">Adults</p>
+            <div className="filter-related-change-cont">
+              <div id="changeMinusAdults" className={filterAdultIsDisabled}>
+                <p
+                  id="changeDisabledMinusAdults"
+                  className={changeAdultIsDisabled}
+                  onClick={decreaseAdultNumber}
+                >
+                  -
+                </p>
+              </div>
+              <p id="numberAdults" className="filter-related-text">{adultNumber}</p>
+              <div id="changePlusAdults" className={filterAdultIsActive}>
+                <p id="changeDisabledPlusAdults" className={changeAdultIsActive} onClick={increaseAdultNumber}>+</p>
               </div>
             </div>
-
-            <div className="filter-related-cont">
-              <p className="filter-related-text">Children</p>
-              <div className="filter-related-change-cont">
-                <div id="changeMinusChildren" className={filterChildIsDisabled}>
-                  <p
-                    id="changeDisabledMinusChildren"
-                    className={changeChildIsDisabled}
-                    onClick={decreaseChildrenNumber}
-                  >
-                    -
-                  </p>
-                </div>
-                <p id="numberChildren" className="filter-related-text">{childrenNumber}</p>
-                <div id="changePlusChildren" className={filterChildIsActive}>
-                  <p id="changeDisabledPlusChildren" className={changeChildIsActive} onClick={increaseChildrenNumber}>+</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="filter-related-cont">
-              <p className="filter-related-text">Rooms</p>
-              <div className="filter-related-change-cont">
-                <div id="changeMinusRooms" className={filterRoomIsDisabled}>
-                  <p id="changeDisabledMinusRooms" className={changeRoomIsDisabled} onClick={decreaseRoomNumber}>-</p>
-                </div>
-                <p id="numberRooms" className="filter-related-text">{roomNumber}</p>
-                <div id="changePlusRooms" className={filterRoomIsActive}>
-                  <p id="changeDisabledPlusRooms" className={changeRoomIsActive} onClick={increaseRoomNumber}>+</p>
-                </div>
-              </div>
-            </div>
-
-            {childrenSection}
-            <div className="filter-hidden filter-age" />
-
           </div>
 
+          <div className="filter-related-cont">
+            <p className="filter-related-text">Children</p>
+            <div className="filter-related-change-cont">
+              <div id="changeMinusChildren" className={filterChildIsDisabled}>
+                <p
+                  id="changeDisabledMinusChildren"
+                  className={changeChildIsDisabled}
+                  onClick={decreaseChildrenNumber}
+                >
+                  -
+                </p>
+              </div>
+              <p id="numberChildren" className="filter-related-text">{childrenNumber}</p>
+              <div id="changePlusChildren" className={filterChildIsActive}>
+                <p id="changeDisabledPlusChildren" className={changeChildIsActive} onClick={increaseChildrenNumber}>+</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="filter-related-cont">
+            <p className="filter-related-text">Rooms</p>
+            <div className="filter-related-change-cont">
+              <div id="changeMinusRooms" className={filterRoomIsDisabled}>
+                <p id="changeDisabledMinusRooms" className={changeRoomIsDisabled} onClick={decreaseRoomNumber}>-</p>
+              </div>
+              <p id="numberRooms" className="filter-related-text">{roomNumber}</p>
+              <div id="changePlusRooms" className={filterRoomIsActive}>
+                <p id="changeDisabledPlusRooms" className={changeRoomIsActive} onClick={increaseRoomNumber}>+</p>
+              </div>
+            </div>
+          </div>
+
+          {childrenSection}
+          <div className="filter-hidden filter-age" />
+
         </div>
+
       </div>
+    </div>
 
-    )
-
-}
-
+  );
+};
 
 export default Filter;

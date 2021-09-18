@@ -11,7 +11,7 @@ const AvailHotel = ({ props }) => (
         </a>
 
         <p className="home-hotel-name home-text">
-          <Link to={`/hotels/${elem.id}`}>{elem.name}</Link>
+          <Link to={`/availHotels/${elem.id}`}>{elem.name}</Link>
         </p>
 
         <p className="home-destination home-text">

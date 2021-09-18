@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HomeGuestContent = ({ props }) => (
   <>
@@ -8,7 +9,7 @@ const HomeGuestContent = ({ props }) => (
           <img className="home-guests-photo" src={elem.imageUrl} alt={elem.name} />
         </a>
         <p className="home-hotel-name home-text">
-          <a href="/">{elem.name}</a>
+          <Link to={`/homeHotels/${elem.id}`}>{elem.name}</Link>
         </p>
         <p className="home-destination home-text">
           <a href="/">
