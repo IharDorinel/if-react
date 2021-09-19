@@ -72,7 +72,6 @@ const HotelCard = () => {
                 <button type="submit" className="avail-hotel-button">Reserve</button>
               </div>
             </div>
-
           </div>
         </div>
       </section>

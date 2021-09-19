@@ -1,6 +1,4 @@
 import React from 'react';
-
-// components
 import AvailHotel from './AvailHotel';
 
 const AvailHotels = ({ props }) => (
