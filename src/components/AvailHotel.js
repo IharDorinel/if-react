@@ -1,16 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const HomeGuestContent = ({ props }) => (
+const AvailHotel = ({ props }) => (
   <>
     {props.map((elem) => (
-      <div className="home-guests-box" key={elem.id}>
-        <a href="/" className="home-guests-photo-link">
-          <img className="home-guests-photo" src={elem.imageUrl} alt={elem.name} />
+      <div className="avail-hotels-box" key={elem.id}>
+
+        <a href="/" className="avail-hotels-photo-link">
+          <img className="avail-hotels-photo" src={elem.imageUrl} alt="hotel_leopold" />
         </a>
+
         <p className="home-hotel-name home-text">
-          <Link to={`/homeHotels/${elem.id}`}>{elem.name}</Link>
+          <Link to={`/availHotels/${elem.id}`}>{elem.name}</Link>
         </p>
+
         <p className="home-destination home-text">
           <a href="/">
             {elem.city}
@@ -22,7 +25,8 @@ const HomeGuestContent = ({ props }) => (
 
       </div>
     ))}
+
   </>
 );
 
-export default HomeGuestContent;
+export default AvailHotel;
