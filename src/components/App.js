@@ -24,7 +24,6 @@ const App = () => (
   <>
     <Router>
       <TopSection />
-      {/* <Switch> */}
 
       <Route exact path="/availHotels/:id">
         <HotelCard />
@@ -36,11 +35,6 @@ const App = () => (
         <HotelCard />
       </Route>
 
-      <Route exact path="/signin">
-        <SignIn />
-      </Route>
-
-      {/* </Switch> */}
       <Footer />
     </Router>
   </>
