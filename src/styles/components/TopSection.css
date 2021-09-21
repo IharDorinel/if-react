@@ -116,6 +116,10 @@ a {
     fill: var(--primary-white);
 }
 
+.icon:hover {
+    cursor: pointer;
+}
+
 .icon-night, .svg {
     width: 30px;
     height: 30px;
@@ -156,6 +160,7 @@ a {
     border-radius: 8px;
     margin: 0 auto;
     position: relative;
+    cursor: pointer;
 }
 
 .search-form label {
@@ -201,7 +206,7 @@ input {
 .check {
     max-width: 260px;
     width: 100%;
-    border: 3px solid #f5bd41;
+    border: 3px solid var(--secondary-yellow);
     border-radius: 8px;
     display: flex;
 }
@@ -212,6 +217,13 @@ input {
 
 .check__label--desktop {
     display: inline-block;
+}
+
+.check__label--desktop-up {
+    display: inline-block;
+    transform: translateY(-50px);
+    color: var(--primary-white);
+    transition: all .25s;
 }
 
 .check__input {
@@ -265,6 +277,11 @@ input {
     transform: translateY(-50px);
     color: var(--primary-white);
     transition: all .25s;
+}
+
+.datePicker {
+    width: 50%;
+    padding-top: 20px;
 }
 
 .header-mobile-icons {

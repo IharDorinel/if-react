@@ -1,0 +1,115 @@
+/*filter*/
+
+.filter-related {
+    width: 260px;
+    height: 160px;
+    background-color: var(--primary-white);
+    border-radius: 8px;
+    margin-top: 70px;
+    padding-bottom: 20px;
+    position: absolute;
+    left: 62%;
+    user-select: none;
+    z-index: 99;
+}
+
+.filter-related-newheight {
+    width: 260px;
+    height: 260px;
+    background-color: var(--primary-white);
+    border-radius: 8px;
+    margin-top: 70px;
+    padding-bottom: 20px;
+    position: absolute;
+    left: 62%;
+    user-select: none;
+    z-index: 99;
+}
+
+.filter-related-bigCont {
+    padding: 20px;
+}
+
+.filter-related-cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-related-change-cont {
+    width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-related-text {
+    font: 16px Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.filter-related-change {
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-white);
+    border: 1px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.filter-disabled {
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #CECECE;
+    cursor: auto;
+}
+
+.change {
+    font: 18px Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 21px;
+    color: var(--primary);
+}
+
+.change-disabled {
+    font: 18px Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 21px;
+    color: #CECECE;
+}
+
+.filter-related-quest {
+    font: 12px Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 14px;
+}
+
+.filter-age {
+    width: 230px;
+    height: auto;
+    background-color: var(--primary-white);
+    border: 1px solid var(--primary-white);
+}
+
+.filter-related-age-cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.filter-related-age {
+    font: 12px Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 14px;
+}
+
+.select-child-age {
+    border-color: var(--primary);
+}

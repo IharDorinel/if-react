@@ -22,3 +22,26 @@ h1 {
     overflow: hidden;
     position: relative;
 }
+
+.switcher {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+}
+
+.home-switcher-left {
+    width: 40px;
+    left: -15px;
+    top: 29%;
+    transform: rotate(
+            180deg
+    );
+}
+
+.home-switcher-right {
+    width: 2400px;
+    left: 40px;
+    top: 31%;
+}
+
