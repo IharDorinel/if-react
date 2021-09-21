@@ -1,10 +1,8 @@
 import React from 'react';
 
-const ChildAgeSelect = () => {
-
-  return (
-    <div>
-        <select className="select-child-age">
+const ChildAgeSelect = () => (
+  <div>
+    <select className="select-child-age">
       <option value="0">0 years old</option>
       <option value="1">1 years old</option>
       <option value="2">2 years old</option>
@@ -23,9 +21,8 @@ const ChildAgeSelect = () => {
       <option value="15">15 years old</option>
       <option value="16">16 years old</option>
       <option value="17">17 years old</option>
-        </select>
-    </div>
-  )
-}
+    </select>
+  </div>
+);
 
 export default ChildAgeSelect;

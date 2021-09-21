@@ -1,0 +1,53 @@
+.dropdownContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 220px;
+    border-radius: 8px;
+    border: 3px solid var(--secondary-yellow);
+    background: linear-gradient(45deg, #6a85b6, #bac8e0);
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    margin: 0 auto;
+}
+
+.dropdownSignOut {
+    position: absolute;
+    color: var(--primary-white);
+    top: 12%;
+    right: 75px;
+}
+
+.dropdownSignOut:hover {
+    color: var(--secondary-yellow);
+}
+
+.dropdownInput {
+    margin-top: 10px;
+}
+
+.dropdownBtn {
+    height: 25px;
+    width: 90px;
+    font: 14px Roboto, sans-serif;
+    background-color: var(--primary);
+    color: var(--primary-white);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.signInEmailError {
+    color: red;
+    font: 14px Roboto, sans-serif;
+    position: absolute;
+    top: 28%;
+}
+
+.signInPasswordError {
+    color: red;
+    font: 14px Roboto, sans-serif;
+    position: absolute;
+    top: 53%;
+}

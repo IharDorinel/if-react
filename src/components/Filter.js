@@ -21,7 +21,7 @@ const Filter = ({
   const [changeRoomIsDisabled, setChangeRoomIsDisabled] = useState('change-disabled');
   const [changeRoomIsActive, setChangeRoomIsActive] = useState('change');
 
-  const childrenSection = childrenNumber > 0 ? <FilterQuest childrenCount={childrenNumber} /> : null;
+  const childrenSection = childrenNumber > 0 ? <FilterQuest childrenNumber={childrenNumber} /> : null;
 
   const increaseAdultNumber = () => {
     if (adultNumber === 29) {
@@ -115,18 +115,17 @@ const Filter = ({
 
             <p className="filter-related-text">Adults</p>
             <div className="filter-related-change-cont">
-              <div id="changeMinusAdults" className={filterAdultIsDisabled}>
+              <div id="changeMinusAdults" className={filterAdultIsDisabled} onClick={decreaseAdultNumber}>
                 <p
                   id="changeDisabledMinusAdults"
                   className={changeAdultIsDisabled}
-                  onClick={decreaseAdultNumber}
                 >
                   -
                 </p>
               </div>
               <p id="numberAdults" className="filter-related-text">{adultNumber}</p>
-              <div id="changePlusAdults" className={filterAdultIsActive}>
-                <p id="changeDisabledPlusAdults" className={changeAdultIsActive} onClick={increaseAdultNumber}>+</p>
+              <div id="changePlusAdults" className={filterAdultIsActive} onClick={increaseAdultNumber}>
+                <p id="changeDisabledPlusAdults" className={changeAdultIsActive}>+</p>
               </div>
             </div>
           </div>
@@ -134,18 +133,17 @@ const Filter = ({
           <div className="filter-related-cont">
             <p className="filter-related-text">Children</p>
             <div className="filter-related-change-cont">
-              <div id="changeMinusChildren" className={filterChildIsDisabled}>
+              <div id="changeMinusChildren" className={filterChildIsDisabled} onClick={decreaseChildrenNumber}>
                 <p
                   id="changeDisabledMinusChildren"
                   className={changeChildIsDisabled}
-                  onClick={decreaseChildrenNumber}
                 >
                   -
                 </p>
               </div>
               <p id="numberChildren" className="filter-related-text">{childrenNumber}</p>
-              <div id="changePlusChildren" className={filterChildIsActive}>
-                <p id="changeDisabledPlusChildren" className={changeChildIsActive} onClick={increaseChildrenNumber}>+</p>
+              <div id="changePlusChildren" className={filterChildIsActive} onClick={increaseChildrenNumber}>
+                <p id="changeDisabledPlusChildren" className={changeChildIsActive}>+</p>
               </div>
             </div>
           </div>
@@ -153,12 +151,12 @@ const Filter = ({
           <div className="filter-related-cont">
             <p className="filter-related-text">Rooms</p>
             <div className="filter-related-change-cont">
-              <div id="changeMinusRooms" className={filterRoomIsDisabled}>
-                <p id="changeDisabledMinusRooms" className={changeRoomIsDisabled} onClick={decreaseRoomNumber}>-</p>
+              <div id="changeMinusRooms" className={filterRoomIsDisabled} onClick={decreaseRoomNumber}>
+                <p id="changeDisabledMinusRooms" className={changeRoomIsDisabled}>-</p>
               </div>
               <p id="numberRooms" className="filter-related-text">{roomNumber}</p>
-              <div id="changePlusRooms" className={filterRoomIsActive}>
-                <p id="changeDisabledPlusRooms" className={changeRoomIsActive} onClick={increaseRoomNumber}>+</p>
+              <div id="changePlusRooms" className={filterRoomIsActive} onClick={increaseRoomNumber}>
+                <p id="changeDisabledPlusRooms" className={changeRoomIsActive}>+</p>
               </div>
             </div>
           </div>

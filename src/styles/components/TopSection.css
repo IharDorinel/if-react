@@ -116,6 +116,10 @@ a {
     fill: var(--primary-white);
 }
 
+.icon:hover {
+    cursor: pointer;
+}
+
 .icon-night, .svg {
     width: 30px;
     height: 30px;
@@ -156,6 +160,7 @@ a {
     border-radius: 8px;
     margin: 0 auto;
     position: relative;
+    cursor: pointer;
 }
 
 .search-form label {
@@ -201,7 +206,7 @@ input {
 .check {
     max-width: 260px;
     width: 100%;
-    border: 3px solid #f5bd41;
+    border: 3px solid var(--secondary-yellow);
     border-radius: 8px;
     display: flex;
 }
@@ -278,19 +283,6 @@ input {
     width: 50%;
     padding-top: 20px;
 }
-
-/*.react-datepicker-wrapper {*/
-/*    display: inline-block;*/
-/*    padding: 0;*/
-/*    border: 0;*/
-/*    width: 43%;*/
-/*}*/
-
-/*.destination__input:not(:placeholder-shown) .datePicker*/
-/*.check:focus .datePicker {*/
-/*   !*visibility: visible;*!*/
-/*    visibility: hidden;*/
-/*}*/
 
 .header-mobile-icons {
     border: none;

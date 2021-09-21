@@ -5,6 +5,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 // components
 import AvailHotels from './AvailHotels';
 import Filter from './Filter';
+import SignIn from './SignIn';
+import SignOut from './SignOut';
 
 // images
 import logoVector from '../styles/booking_images/logo_vector.svg';
@@ -16,6 +18,12 @@ import kastelmeccano from '../styles/booking_images/kastelmeccano.jpg';
 
 const TopSection = () => {
   const [currentValue, setCurrentValue] = useState('');
+
+  const [signInIsVisible, setSignInIsVisible] = useState(false);
+
+  const [signOutIsVisible, setSignOutIsVisible] = useState(false);
+
+  const [signOut, setSignOut] = useState(false);
 
   const [filterIsVisible, setFilterIsVisible] = useState(false);
 
@@ -37,6 +45,8 @@ const TopSection = () => {
 
   const params = {
     search: currentValue,
+    adults: adultNumber,
+    rooms: roomNumber,
   };
 
   const url = new URL('https://fe-student-api.herokuapp.com/api/hotels');
@@ -79,6 +89,16 @@ const TopSection = () => {
     setFilterIsVisible((prev) => !prev);
   };
 
+  const showDropdown = (event) => {
+    event.preventDefault();
+    setSignInIsVisible((prev) => !prev);
+
+    if (signOut) {
+      setSignInIsVisible((prev) => !prev);
+      setSignOutIsVisible((prev) => !prev);
+    }
+  };
+
   return (
     <>
       <header className="header">
@@ -100,22 +120,35 @@ const TopSection = () => {
               </div>
               <div className="header-nav-icons">
                 <a href="/">
-                  <img src={iconNight} className="icon-night" alt="iconNight" />
+                  <img src={iconNight} className="icon-night icon" alt="iconNight" />
                 </a>
-                <a href="/">
-                  <img src={iconAccount} className="icon-account" alt="iconAccount" />
-                </a>
+
+                <img src={iconAccount} className="icon-account icon" alt="iconAccount" onClick={showDropdown} />
+                {signOut
+                  ? (
+                    <p className="dropdownSignOut">Sign out</p>
+                  )
+                  : null}
               </div>
             </nav>
             <nav className="header-nav-adapt">
               <a href="/">
                 <img src={iconNight} className="icon-night icon" alt="iconNight" />
               </a>
-              <a href="/">
-                <img src={iconAccount} className="icon-account icon" alt="iconAccount" />
-              </a>
+              <img src={iconAccount} className="icon-account icon" alt="iconAccount" />
             </nav>
           </div>
+
+          {signInIsVisible
+            ? (
+              <SignIn setSignOut={setSignOut} setSignInIsVisible={setSignInIsVisible} />
+            )
+            : null}
+          {signOutIsVisible
+            ? (
+              <SignOut setSignOut={setSignOut} setSignOutIsVisible={setSignOutIsVisible} />
+            )
+            : null}
 
           <p className="search-title">Discover stays to live, work or just relax</p>
 
