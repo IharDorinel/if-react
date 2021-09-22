@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useSelector } from 'react-redux';
 
 // components
 import AvailHotels from './AvailHotels';
@@ -15,6 +16,12 @@ import google from '../styles/booking_images/google-play-badge.svg';
 import appStore from '../styles/booking_images/App_Store_Badge.svg';
 
 const TopSection = () => {
+  const adults = useSelector((state) => state.adults);
+
+  const children = useSelector((state) => state.children);
+
+  const rooms = useSelector((state) => state.rooms);
+
   const [currentValue, setCurrentValue] = useState('');
 
   const [filterIsVisible, setFilterIsVisible] = useState(false);
@@ -28,12 +35,6 @@ const TopSection = () => {
   const [startDate, setStartDate] = useState(new Date());
 
   const [endDate, setEndDate] = useState(new Date());
-
-  const [adultNumber, setAdultNumber] = useState(1);
-
-  const [childrenNumber, setChildrenNumber] = useState(0);
-
-  const [roomNumber, setRoomNumber] = useState(1);
 
   const params = {
     search: currentValue,
@@ -174,19 +175,19 @@ const TopSection = () => {
 
                 <span className="guests_count">
                   <span id="adults">
-                    {adultNumber}
+                    {adults}
                     {' '}
                     Adults
                   </span>
                   <span id="children">
     &nbsp;—&nbsp;
-                    {childrenNumber}
+                    {children}
                     {' '}
                     Children
                   </span>
                   <span id="rooms">
     &nbsp;—&nbsp;
-                    {roomNumber}
+                    {rooms}
                     {' '}
                     Rooms
                   </span>
@@ -198,12 +199,9 @@ const TopSection = () => {
 
                 ? (
                   <Filter
-                    adultNumber={adultNumber}
-                    setAdultNumber={setAdultNumber}
-                    childrenNumber={childrenNumber}
-                    setChildrenNumber={setChildrenNumber}
-                    roomNumber={roomNumber}
-                    setRoomNumber={setRoomNumber}
+                    adults={adults}
+                    children={children}
+                    rooms={rooms}
                   />
                 )
 
