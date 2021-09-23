@@ -1,9 +1,9 @@
 import React from 'react';
 
 // components
-
 import TopSection from './TopSection';
 import HomeGuest from './HomeGuest';
+import Footer from './Footer';
 
 // styles
 import '../styles/components/App.css';
@@ -12,11 +12,14 @@ import '../styles/components/HomeGuestContent.css';
 import '../styles/components/AvailHotels.css';
 import '../styles/components/AvailHotel.css';
 import '../styles/components/TopSection.css';
+import '../styles/components/Filter.css';
+import '../styles/components/Footer.css';
 
 const App = () => (
   <>
     <TopSection />
     <HomeGuest />
+    <Footer />
   </>
 );
 
