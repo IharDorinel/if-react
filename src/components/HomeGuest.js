@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPopularHotels } from '../actionCreators/popularHotels';
 
 // components
 import HomeGuestContent from './HomeGuestContent';
 
 const HomeGuest = () => {
-  const [data, setData] = useState([]);
+  const popularHotels = useSelector((state) => state.hotels.popular || []);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
-      .then((response) => response.json())
-      .then((data) => setData(data));
+    dispatch(getPopularHotels());
   }, []);
 
   return (
@@ -17,7 +18,7 @@ const HomeGuest = () => {
       <div className="homes-guests-container">
         <h1>Homes guests loves</h1>
         <div className="home-guests-gallery">
-          <HomeGuestContent props={data} />
+          <HomeGuestContent props={popularHotels} />
         </div>
       </div>
     </section>
