@@ -1,11 +1,22 @@
 import React from 'react';
 import AvailHotel from './AvailHotel';
 
-const AvailHotels = ({ props }) => (
+const AvailHotels = ({ props, currentTheme }) => (
 
-  <section className="avail-hotels filter-hidden">
+  <section
+    css={(theme) => ({
+      backgroundColor: theme[currentTheme].colors.primary,
+    })}
+    className="filter-hidden"
+  >
     <div className="avail-hotels-container">
-      <h1>Available Hotels</h1>
+      <h1
+        css={(theme) => ({
+          color: theme[currentTheme].colors.secondary,
+        })}
+      >
+        Available Hotels
+      </h1>
       <div className="avail-hotels-gallery">
         <AvailHotel props={props} />
       </div>

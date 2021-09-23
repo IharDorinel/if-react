@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector } from 'react-redux';
@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 // components
 import AvailHotels from './AvailHotels';
 import Filter from './Filter';
+import SignIn from './SignIn';
+import SignOut from './SignOut';
 
 // images
 import logoVector from '../styles/booking_images/logo_vector.svg';
@@ -15,12 +17,18 @@ import kastelmeccano from '../styles/booking_images/kastelmeccano.jpg';
 import google from '../styles/booking_images/google-play-badge.svg';
 import appStore from '../styles/booking_images/App_Store_Badge.svg';
 
-const TopSection = () => {
+const TopSection = ({ currentTheme, setCurrentTheme }) => {
   const adults = useSelector((state) => state.adults);
 
   const children = useSelector((state) => state.children);
 
   const rooms = useSelector((state) => state.rooms);
+
+  const [signInIsVisible, setSignInIsVisible] = useState(false);
+
+  const [signOutIsVisible, setSignOutIsVisible] = useState(false);
+
+  const [signOut, setSignOut] = useState(false);
 
   const [currentValue, setCurrentValue] = useState('');
 
@@ -38,6 +46,8 @@ const TopSection = () => {
 
   const params = {
     search: currentValue,
+    adults,
+    rooms,
   };
 
   const url = new URL('https://fe-student-api.herokuapp.com/api/hotels');
@@ -71,7 +81,7 @@ const TopSection = () => {
       .catch(() => setData([]));
   };
 
-  const availHotels = data.length > 0 ? <AvailHotels props={data} /> : null;
+  const availHotels = data.length > 0 ? <AvailHotels props={data} currentTheme={currentTheme} /> : null;
 
   const calendarShow = () => {
     setCheckUpper('check__label--desktop-up');
@@ -81,6 +91,34 @@ const TopSection = () => {
   const filterShow = () => {
     setFilterIsVisible((prev) => !prev);
   };
+
+  const showDropdown = (event) => {
+    event.preventDefault();
+    setSignInIsVisible((prev) => !prev);
+
+    if (signOut) {
+      setSignInIsVisible((prev) => !prev);
+      setSignOutIsVisible((prev) => !prev);
+    }
+  };
+
+  const changeTheme = (event) => {
+    event.preventDefault();
+    if (currentTheme !== 'dark') {
+      localStorage.setItem('theme', 'dark');
+      setCurrentTheme('dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+      setCurrentTheme('light');
+    }
+  };
+
+  useEffect(() => {
+    const localTheme = localStorage.getItem('theme');
+    if (localTheme) {
+      setCurrentTheme(localTheme);
+    }
+  }, []);
 
   return (
     <>
@@ -102,12 +140,15 @@ const TopSection = () => {
                 </a>
               </div>
               <div className="header-nav-icons">
-                <a href="/">
-                  <img src={iconNight} className="icon-night" alt="iconNight" />
-                </a>
-                <a href="/">
-                  <img src={iconAccount} className="icon-account" alt="iconAccount" />
-                </a>
+
+                <img src={iconNight} className="icon-night" alt="iconNight" onClick={changeTheme} />
+
+                <img src={iconAccount} className="icon-account" alt="iconAccount" onClick={showDropdown} />
+                {signOut
+                  ? (
+                    <p className="dropdownSignOut">Sign out</p>
+                  )
+                  : null}
               </div>
             </nav>
             <nav className="header-nav-adapt">
@@ -119,6 +160,17 @@ const TopSection = () => {
               </a>
             </nav>
           </div>
+
+          {signInIsVisible
+            ? (
+              <SignIn setSignOut={setSignOut} setSignInIsVisible={setSignInIsVisible} />
+            )
+            : null}
+          {signOutIsVisible
+            ? (
+              <SignOut setSignOut={setSignOut} setSignOutIsVisible={setSignOutIsVisible} />
+            )
+            : null}
 
           <p className="search-title">Discover stays to live, work or just relax</p>
 

@@ -5,7 +5,7 @@ import { getPopularHotels } from '../actionCreators/popularHotels';
 // components
 import HomeGuestContent from './HomeGuestContent';
 
-const HomeGuest = () => {
+const HomeGuest = ({ currentTheme }) => {
   const popularHotels = useSelector((state) => state.hotels.popular || []);
   const dispatch = useDispatch();
 
@@ -14,9 +14,17 @@ const HomeGuest = () => {
   }, []);
 
   return (
-    <section className="homes-guests">
+    <section css={(theme) => ({
+      backgroundColor: theme[currentTheme].colors.primary,
+    })}
+    >
       <div className="homes-guests-container">
-        <h1>Homes guests loves</h1>
+        <h1 css={(theme) => ({
+          color: theme[currentTheme].colors.secondary,
+        })}
+        >
+          Homes guests loves
+        </h1>
         <div className="home-guests-gallery">
           <HomeGuestContent props={popularHotels} />
         </div>
