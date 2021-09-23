@@ -214,6 +214,13 @@ input {
     display: inline-block;
 }
 
+.check__label--desktop-up {
+    display: inline-block;
+    transform: translateY(-50px);
+    color: var(--primary-white);
+    transition: all .25s;
+}
+
 .check__input {
     width: 50%;
     border-radius: 8px;
@@ -266,6 +273,24 @@ input {
     color: var(--primary-white);
     transition: all .25s;
 }
+
+.datePicker {
+    width: 50%;
+    padding-top: 20px;
+}
+
+/*.react-datepicker-wrapper {*/
+/*    display: inline-block;*/
+/*    padding: 0;*/
+/*    border: 0;*/
+/*    width: 43%;*/
+/*}*/
+
+/*.destination__input:not(:placeholder-shown) .datePicker*/
+/*.check:focus .datePicker {*/
+/*   !*visibility: visible;*!*/
+/*    visibility: hidden;*/
+/*}*/
 
 .header-mobile-icons {
     border: none;
