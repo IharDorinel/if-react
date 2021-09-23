@@ -1,34 +1,36 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPopularHotels } from '../actionCreators/popularHotels';
 
 // components
 import HomeGuestContent from './HomeGuestContent';
 
-export default class HomeGuest extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-    };
-  }
+const HomeGuest = ({ currentTheme }) => {
+  const popularHotels = useSelector((state) => state.hotels.popular || []);
+  const dispatch = useDispatch();
 
-  componentDidMount() {
-    fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
-      .then((response) => response.json())
-      .then((data) => this.setState({ data }));
-  }
+  useEffect(() => {
+    dispatch(getPopularHotels());
+  }, []);
 
-  render() {
-    const { data } = this.state;
-
-    return (
-      <section className="homes-guests">
-        <div className="homes-guests-container">
-          <h1>Homes guests loves</h1>
-          <div className="home-guests-gallery">
-            <HomeGuestContent props={data} />
-          </div>
+  return (
+    <section css={(theme) => ({
+      backgroundColor: theme[currentTheme].colors.primary,
+    })}
+    >
+      <div className="homes-guests-container">
+        <h1 css={(theme) => ({
+          color: theme[currentTheme].colors.secondary,
+        })}
+        >
+          Homes guests loves
+        </h1>
+        <div className="home-guests-gallery">
+          <HomeGuestContent props={popularHotels} />
         </div>
-      </section>
-    );
-  }
-}
+      </div>
+    </section>
+  );
+};
+
+export default HomeGuest;
